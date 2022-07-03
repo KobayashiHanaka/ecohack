@@ -1,24 +1,31 @@
-# README
+<h1>ecohack</h1>
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## サイト概要
+### サイトテーマ
+<環境ライフハックSNS。なんとなくはじめるeco>
 
-Things you may want to cover:
+### テーマを選んだ理由
+<近年、SDGsやレジ袋の有料化など、環境保全に対する認識の広がりが加速してきました。
+しかし、私は日常生活の中で、未だ変化をあまり感じることが出来ていません。
+繰り返し使えるのに何となく捨てていたことに気づくことが出来たり、意外と手軽な方法で節約出来る事を知れたり、
+身近にecoを感じられるコンテンツをアプリケーションで表現してみたいという思いからこのテーマを選びました>
 
-* Ruby version
+### ターゲットユーザ
+<子供を含むすべての人に向けて作られているアプリ>
 
-* System dependencies
+### 主な利用シーン
+<日常生活の中のワンシーンで>
 
-* Configuration
+## 設計書
+<>
 
-* Database creation
+## 開発環境
+- OS：Linux(CentOS)
+- 言語：HTML,CSS,JavaScript,Ruby,SQL
+- フレームワーク：Ruby on Rails
+- JSライブラリ：jQuery
+- IDE：Cloud9
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+## 使用素材
+- 外部サービスの画像素材・音声素材を使用した場合は、必ずサービス名とURLを明記してください。
+- 使用しない場合は
