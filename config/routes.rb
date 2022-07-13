@@ -1,13 +1,19 @@
 Rails.application.routes.draw do
 
-  
+
   scope module: :public do
-    
+
     devise_for :users,skip: [:passwords], controllers: {
     registrations: "public/registrations",
     sessions: 'public/sessions'
     }
-    resources :users, only: [:index, :show, :edit]
+
+    #devise_scope :users do
+      #get '/users', to: redirect("users/sign_up")
+    #end
+    #ルーティングが被ってしまったので一旦保留
+
+    resources :users, only: [:index, :show, :edit,:update]
 
     root to: 'homes#top'
     get 'homes/about' => 'homes#about',as: 'about'
@@ -17,7 +23,7 @@ Rails.application.routes.draw do
   end
 
   namespace :admin do
-    
+
     devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
     sessions: "admin/sessions"
     }
