@@ -5,7 +5,7 @@ class Public::PostsController < ApplicationController
 
   def index
     @posts = Post.all
-    @post = Post.new(post_params)
+    @post = Post.new
   end
 
   def show
@@ -15,8 +15,11 @@ class Public::PostsController < ApplicationController
   def create
     @user = current_user
     @post = Post.new(post_params)
-    @post.save
-    redirect_to post_path(@post.id)
+    if @post.save
+      redirect_to post_path(@post.id)
+    else
+      render :index
+    end
   end
 
   def destroy

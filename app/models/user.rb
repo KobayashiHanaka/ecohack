@@ -4,6 +4,10 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
+
+  has_many :posts, dependent: :destroy
+
+
   has_one_attached :profile_image
 
 
@@ -15,3 +19,8 @@ class User < ApplicationRecord
       profile_image.variant(resize_to_limit: [width,height]).processed
   end
 end
+
+
+
+
+
