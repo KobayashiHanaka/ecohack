@@ -7,6 +7,14 @@ Rails.application.routes.draw do
     registrations: "public/registrations",
     sessions: 'public/sessions'
     }
+
+
+    #devise_scope :users do
+      #get '/users', to: redirect("users/sign_up")
+    #end
+    #ルーティングが被ってしまったので一旦保留
+
+
     resources :users, only: [:index, :show, :edit,:update]
 
     root to: 'homes#top'
