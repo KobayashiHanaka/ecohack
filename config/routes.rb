@@ -1,13 +1,13 @@
 Rails.application.routes.draw do
 
-  
+
   scope module: :public do
-    
+
     devise_for :users,skip: [:passwords], controllers: {
     registrations: "public/registrations",
     sessions: 'public/sessions'
     }
-    resources :users, only: [:index, :show, :edit]
+    resources :users, only: [:index, :show, :edit,:update]
 
     root to: 'homes#top'
     get 'homes/about' => 'homes#about',as: 'about'
@@ -17,7 +17,7 @@ Rails.application.routes.draw do
   end
 
   namespace :admin do
-    
+
     devise_for :admin, skip: [:registrations, :passwords] ,controllers: {
     sessions: "admin/sessions"
     }
