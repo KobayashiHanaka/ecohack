@@ -13,6 +13,7 @@
       <%= render 'public/posts/index', post: @post2 %>
       <%= post.title %>
       <%= post.sentence %>
+      <%= link_to "#{post.post_commemts.count}コメント", post_path(@post) %>
     <% end %>
     </div>
   </div>
