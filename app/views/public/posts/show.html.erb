@@ -9,10 +9,11 @@
                   <th><%= render 'public/post/index', post: @post2 %></th>
                   <th>title</th>
                   <th><%= post.title %></th>
-                </tr
+                </tr>
                 <tr>
                   <th>Sentence</th>
                   <th><%= post.sentence %></th>
+                  <th><%= render 'public/posts/comment', post: @post, post_comment: @post_comment %></th>
                 </tr>
         </table>
     </div>
