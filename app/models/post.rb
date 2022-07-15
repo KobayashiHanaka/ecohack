@@ -3,6 +3,8 @@ class Post < ApplicationRecord
 
   belongs_to :user
 
+  has_many :favorites, dependent: :destroy
+
   belongs_to :user
   validates :title, presence: true
   validates :sentence, presence: true
@@ -13,5 +15,10 @@ class Post < ApplicationRecord
       post_image.attach(io:File.open(file_path),filename: 'default-image.jpg', content_type: 'image/jpeg')
     end
       post_image.variant(resize_to_limit: [width,height]).processed
+  end
+
+
+  def favorited_by?(user)
+    favorites.where(user_id: user.id).exists?
   end
 end

@@ -6,10 +6,12 @@ class Public::PostsController < ApplicationController
   def index
     @posts = Post.all
     @post = Post.new
+    @post2 = Post.find(params[:post_id])
   end
 
   def show
     @post = Post.find(params[:id])
+    @post2 = Post.find(params[:post_id])
   end
 
   def create

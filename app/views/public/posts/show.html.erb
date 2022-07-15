@@ -6,6 +6,7 @@
         <table class="table">
                 <tr>
                   <th><%= image_tag post.get_post_image(100,100) %></th>
+                  <th><%= render 'public/post/index', post: @post2 %></th>
                   <th>title</th>
                   <th><%= post.title %></th>
                 </tr
