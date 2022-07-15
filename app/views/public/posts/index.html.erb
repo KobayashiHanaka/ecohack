@@ -5,10 +5,12 @@
 
   <%= render 'public/posts/form', post: @post %>
 
+
   <div class="row">
     <div class="col-md-8 offset-md-1">
     <% @posts.each do |post| %>
       <%= image_tag post.get_post_image(100,100) %>
+      <%= render 'public/posts/index', post: @post2 %>
       <%= post.title %>
       <%= post.sentence %>
     <% end %>
