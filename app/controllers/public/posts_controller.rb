@@ -6,12 +6,12 @@ class Public::PostsController < ApplicationController
   def index
     @posts = Post.all
     @post = Post.new
-    @post2 = Post.find(params[:post_id])
+    @post2 = Post.find_by(params[:post_id])
   end
 
   def show
     @post = Post.find(params[:id])
-    @post2 = Post.find(params[:post_id])
+    @post2 = Post.find_by(params[:post_id])
     @comment = PostComment.new
   end
 

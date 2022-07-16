@@ -3,6 +3,9 @@ Rails.application.routes.draw do
 
   scope module: :public do
 
+    root to: 'homes#top'
+    get 'homes/about' => 'homes#about',as: 'about'
+
     devise_for :users,skip: [:passwords], controllers: {
     registrations: "public/registrations",
     sessions: 'public/sessions'
@@ -15,15 +18,13 @@ Rails.application.routes.draw do
     #ルーティングが被ってしまったので一旦保留
 
 
-    resources :users, only: [:index, :show, :edit,:update]
+    resources :users, only: [:edit, :show, :index,  :update]
 
-    root to: 'homes#top'
-    get 'homes/about' => 'homes#about',as: 'about'
-
-    resources :posts, only: [:index, :show, :edit,:create,:destroy,:update] do
+    resources :posts, only: [:edit, :show, :index, :create,:destroy,:update] do
       resource :favorites, only: [:create, :destroy]
       resources :post_comments, only: [:create, :destroy]
     end
+
 
   end
 
@@ -36,9 +37,9 @@ Rails.application.routes.draw do
     root to: 'homes#top'
     get 'homes/about' => 'homes#about',as: 'about'
 
-    resources :users, only: [:index, :show, :edit]
+    resources :users, only: [:edit, :index, :show ]
 
-    resources :posts, only: [:index, :show,:destroy]
+    resources :posts, only: [:show, :destroy, :index]
 
 
   end
