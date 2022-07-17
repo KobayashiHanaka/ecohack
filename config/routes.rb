@@ -1,8 +1,14 @@
 Rails.application.routes.draw do
 
 
+    #ゲストログインのルーティング
+    devise_scope :user do
+      post 'users/guest_sign_in', to: 'users/sessions#new_guest'
+    end
+    
   get 'relationships/followings'
   get 'relationships/followers'
+  
   scope module: :public do
 
     devise_for :users,skip: [:passwords], controllers: {
