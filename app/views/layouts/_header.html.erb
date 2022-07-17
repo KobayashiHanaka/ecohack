@@ -6,7 +6,7 @@
       <%= link_to "Home", root_path, class: "btn btn-outline-primary" %>
       <%= link_to "Users", users_path, class: "btn btn-outline-primary" %>
       <%= link_to "Hacks", posts_path, class: "btn btn-outline-primary" %>
-      <%= link_to "ログアウト", user_registration_path,method: :delete, class: "btn btn-outline-primary" %>
+      <%= link_to "ログアウト", destroy_user_session_path,method: :delete, class: "btn btn-outline-primary" %>
     <% elsif admin_admin_signed_in? %>
       <%= link_to "Users", admin_users_path, class: "btn btn-outline-primary" %>
       <%= link_to "Hacks", admin_posts_path, class: "btn btn-outline-primary" %>
@@ -18,8 +18,9 @@
         <%= link_to "Home", root_path, class: "btn btn-outline-primary" %>
         <%= link_to "About", about_path, class: "btn btn-outline-primary" %>
         <%= link_to "新規登録", new_user_registration_path, class: "btn btn-outline-primary" %>
-      　<%= link_to "ログイン", new_user_session_path, class: "btn btn-outline-primary" %>
+        <%= link_to "ログイン", new_user_session_path, class: "btn btn-outline-primary" %>
       <% end %>
     <% end %>
   </nav>
+  <%= render 'layouts/search' %>
 </div>
