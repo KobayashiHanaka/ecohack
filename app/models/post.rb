@@ -24,15 +24,16 @@ class Post < ApplicationRecord
 
   def self.looks(search,word)
     if search == "perfect_match"
-      @post = Post.where("title LIKE?", "#{word}") #.where("sentence LIKE?", "#{word}")
+      Post.where("title LIKE?", "#{word}").or(Post.where("sentence LIKE?", "#{word}"))
+      #.where("sentence LIKE?", "#{word}")
     elsif search == "forward_match"
-      @post = Post.where("title LIKE?", "#{word}%")
+      Post.where("title LIKE?", "#{word}%").or(Post.where("sentence LIKE?", "#{word}%"))
     elsif search == "backward_match"
-      @post = Post.where("title LIKE?", "%#{word}")
+      Post.where("title LIKE?", "%#{word}").or(Post.where("sentence LIKE?", "%#{word}"))
     elsif search == "partial_match"
-      @post == Post.where("title LIKE?", "%#{word}%")
+      Post.where("title LIKE?", "%#{word}%").or(Post.where("sentence LIKE?", "%#{word}%"))
     else
-      @post == Post.all
+      Post.all
     end
   end
 end
