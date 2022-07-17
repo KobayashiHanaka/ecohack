@@ -1,0 +1,22 @@
+<h2>Results index</h2>
+
+<table class="table table-hover table-inverse">
+  <% if @range == "User" %>
+    <tbody>
+      <%= @users.each do |user| %>
+        <tr>
+          <td><%= user.name %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  <% else %>
+    <tbody>
+      <% @hacks.each do |hack| %>
+        <tr>
+          <td><%= hack.title %></td>
+          <td><%= hack.sentence %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  <% end %>
+</table>
