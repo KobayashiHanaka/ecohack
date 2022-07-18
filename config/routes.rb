@@ -5,10 +5,10 @@ Rails.application.routes.draw do
     devise_scope :user do
       post 'users/guest_sign_in', to: 'users/sessions#new_guest'
     end
-    
+
   get 'relationships/followings'
   get 'relationships/followers'
-  
+
   scope module: :public do
 
     devise_for :users,skip: [:passwords], controllers: {
@@ -36,8 +36,6 @@ Rails.application.routes.draw do
       resource :favorites, only: [:create, :destroy]
       resources :post_comments, only: [:create, :destroy]
     end
-
-
   end
 
   namespace :admin do
@@ -49,7 +47,7 @@ Rails.application.routes.draw do
     root to: 'homes#top'
     get 'homes/about' => 'homes#about',as: 'about'
 
-    resources :users, only: [:index, :show, :edit]
+    resources :users, only: [:index, :show, :destroy]
 
     resources :posts, only: [:index, :show,:destroy]
 
