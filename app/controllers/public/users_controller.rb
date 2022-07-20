@@ -1,6 +1,5 @@
 class Public::UsersController < ApplicationController
 
-  before_action :set_user, only: [:followings,:followers]
 
   def edit
     @user = User.find(params[:id])
