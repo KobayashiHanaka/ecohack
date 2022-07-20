@@ -1,0 +1,6 @@
+いいね一覧
+<% @favorite_posts.each do |post| %>
+  <%= image_tag post.get_post_image(100,100) %>
+  <%= post.title %>
+  <%= post.sentence %>
+<% end %>

@@ -1,6 +1,6 @@
 <div class="col-md-8 offset-md-1">
   <div class="post-form">
-    <% form_with model: post do |f| %>
+    <%= form_with model: post, method: :post do |f| %>
       <div class="field">
         <%= f.file_field :post_image , placeholder:"投稿画像" , accept:"image/*" %>
       </div>
