@@ -6,8 +6,8 @@ Rails.application.routes.draw do
       post 'users/guest_sign_in', to: 'users/sessions#new_guest'
     end
 
-  get 'relationships/followings'
-  get 'relationships/followers'
+  # get 'relationships/followings'
+  # get 'relationships/followers'
 
   scope module: :public do
 
@@ -25,8 +25,10 @@ Rails.application.routes.draw do
 
     resources :users, only: [:index, :show, :edit,:update] do
       resource :relationships, only: [:create, :destroy]
-      #(使用検討中) get 'followinds' => 'relationships#followings', as: 'followings'
-      #(使用検討中) get 'followers' => ' relationships#followers', as: 'followers'
+         
+        member do
+        get :favorites, :followings, :followers
+      end
     end
 
     root to: 'homes#top'
