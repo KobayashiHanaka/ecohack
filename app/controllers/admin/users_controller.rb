@@ -10,12 +10,6 @@ class Admin::UsersController < ApplicationController
   def destroy
     @user=User.find(params[:id])
     @user.destroy
+    redirect_to admin_users_path
   end
-
- private
-
- def user_params
-  params.require(:user).permit(:name,:email,:password,:introduce,:profile_image)
- end
-
 end
