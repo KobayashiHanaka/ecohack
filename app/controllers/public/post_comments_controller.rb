@@ -1,6 +1,8 @@
 class Public::PostCommentsController < ApplicationController
   def create
-    post = Post.find(params[:post_id])
+
+    post = Post.find_by(params[:post_id])
+
     comment = current_user.post_comments.new(post_comments_params)
     comment.post_id = post.id
     comment.save
@@ -8,8 +10,10 @@ class Public::PostCommentsController < ApplicationController
   end
 
   def destroy
-    post = Post.find(params[:post_id])
-    comment = cuurennt_user.post_comments.find_by(params[:id])
+
+    post = Post.find_by(params[:post_id])
+    comment = cuurennt_user.post_comments.find_by(params[:post_id])
+
     comment.post_id = post.id
     comment.destroy
     redirect_to request.referer
