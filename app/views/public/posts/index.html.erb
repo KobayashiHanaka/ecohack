@@ -1,12 +1,14 @@
 <div class="container">
   <div class="row">
-    <h1>投稿一覧画面</h1>
+    <h1>みんなのecohack</h1>
   </div>
 
 
-  <%= render 'public/posts/form', post: @post %>
 
   <div class="row">
+    <div class="col-md-3">
+      <%= render 'public/posts/form', post: @post %>
+    </div>
     <div class="col-md-8 offset-md-1">
     <% @posts.each do |post| %>
       <%= image_tag post.get_post_image(100,100) %>
@@ -14,6 +16,7 @@
       <%= post.title %>
       <%= post.sentence %>
       <%= link_to "#{post.post_comments.count}コメント", post_path(post.id) %>
+
     <% end %>
     </div>
   </div>
