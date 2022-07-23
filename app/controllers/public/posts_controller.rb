@@ -6,7 +6,6 @@ class Public::PostsController < ApplicationController
   def index
     @posts = Post.all
     @post = Post.new
-    @post2 = Post.find_by(params[:post_id])
   end
 
   def show
