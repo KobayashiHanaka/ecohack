@@ -7,7 +7,6 @@ class Public::PostsController < ApplicationController
     @posts = Post.all
     @post = Post.new
     @post2 = Post.find_by(params[:post_id])
-
   end
 
   def show
@@ -41,7 +40,7 @@ class Public::PostsController < ApplicationController
     @post.update
     redirect_to post_path(@post.id)
   end
-  
+
   private
 
   def post_params
