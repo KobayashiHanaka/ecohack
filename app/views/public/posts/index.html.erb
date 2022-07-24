@@ -9,15 +9,26 @@
     <div class="col-md-3">
       <%= render 'public/posts/form', post: @post %>
     </div>
-    <div class="col-md-8 offset-md-1">
-    <% @posts.each do |post| %>
-      <%= image_tag post.get_post_image(100,100) %>
-      <%= render 'public/posts/favorite', post: post %>
-      <%= post.title %>
-      <%= post.sentence %>
-      <%= link_to "#{post.post_comments.count}コメント", post_path(post.id) %>
-
-    <% end %>
+    <div class="col-md-6 offset-md-1">
+      <% @posts.each do |post| %>
+      <div class="row">
+      <div class="col-3">
+        <div style="width: ">
+          <%= image_tag post.get_post_image(100,100) %>
+        </div>
+      </div>
+      <div class="col-1" style="display: flex;">
+        <%= render 'public/posts/favorite', post: post %>
+      </div>
+      <div class="col-3" style="margin-left: 20px;">
+        <%= post.title %>
+      </div>
+      <div class="col-3">
+        <%= post.sentence %>
+      </div>
+        <%= link_to "#{post.post_comments.count}コメント", post_path(post.id) %>
+      </div>
+      <% end %>
     </div>
   </div>
 </div>
