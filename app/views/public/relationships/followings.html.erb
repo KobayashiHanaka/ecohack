@@ -1,8 +1,8 @@
 フォロー一覧
 <% @users.each do |user|%>
-  <%= image_tag user.post.get_post_image(100,100)%>
+  <%= image_tag user.get_profile_image(100,100)%>
   <%= user.name %>
-  <%= user.introduction %>
+  <%= user.introduce %>
   <% if current_user.following?(@user) %>
           <%= link_to "フォローをやめる", user_relationships_path(@user.id), method: :delete %>
   <% end %>
