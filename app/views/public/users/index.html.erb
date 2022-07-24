@@ -3,29 +3,27 @@
     <h1>会員一覧画面</h1>
   </div>
   <div class="row">
-      <% @users.each do |user|%>
-          <div class="col-3">
-            <%= image_tag user.get_profile_image(200,200) %>
+    <% @users.each do |user|%>
+        <div class="col-3">
+          <%= image_tag user.get_profile_image(200,200) %>
+        </div>
+        <div class="col-3">
+          <div class="row font-weight-bold">ニックネーム</div>
+          <div class="row">
+            <%= link_to user_path(user) do %>
+             <%= user.name %>
+            <% end %>
           </div>
-          <div class="col-3">
-            <div class="row">ニックネーム</div>
-            <div class="row">
-              <%= link_to user_path(user) do %>
-               <%= user.name %>
-              <% end %>
-            </div>
-            <div class="row">自己紹介</div>
-          　<div class="row">
-          　   <%= user.introduce %>
-          　</div>
-          　<div class="row">
+          <div class="row">
+            <% if user!=current_user %>
               <% if current_user.following?(user) %>
                 <%= link_to "フォローをやめる", user_relationships_path(user.id), method: :delete %>
               <% else %>
                 <%= link_to "フォローする", user_relationships_path(user.id), method: :post %>
               <% end %>
-            </div>
+            <% end %>
           </div>
+        </div>
       <% end %>
   </div>
 </div>
