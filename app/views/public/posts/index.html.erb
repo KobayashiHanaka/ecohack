@@ -20,11 +20,10 @@
       <div class="col-1" style="display: flex;">
         <%= render 'public/posts/favorite', post: post %>
       </div>
-      <div class="col-3" style="margin-left: 20px;">
-        <%= post.title %>
-      </div>
-      <div class="col-3">
-        <%= post.sentence %>
+      <div class="col-3" style="margin-left: 20px; font-weight-bold">
+        <%= link_to post_path(post) do %>
+          <%= post.title %>
+        <% end %>
       </div>
         <%= link_to "#{post.post_comments.count}コメント", post_path(post.id) %>
       </div>
