@@ -13,3 +13,13 @@
  *= require_tree .
  *= require_self
  */
+
+ .box {background: linear-gradient(white, #8EB8FF);}
+
+ .wrapper {
+   margin: 0 0;
+   padding: 0 0;
+   width: 100%;
+ }
+
+/*background: linear-gradient(to bottom, gold 0%, orange 100%);*/
