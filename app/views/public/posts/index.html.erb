@@ -2,20 +2,20 @@
   <div class="row">
     <h1>みんなのecohack</h1>
   </div>
-
-
-
   <div class="row">
     <div class="col-md-3">
-      <%= render 'public/posts/form', post: @post %>
+      <div class="row">
+        <%= render 'public/posts/form', post: @post %>
+      </div>
+      <div class="row">
+        <%= render 'public/posts/detail', user: @user %>
+      </div>
     </div>
     <div class="col-md-6 offset-md-1">
       <% @posts.each do |post| %>
       <div class="row">
       <div class="col-3">
-        <div style="width: ">
-          <%= image_tag post.get_post_image(100,100) %>
-        </div>
+        <%= image_tag post.get_post_image(100,100) %>
       </div>
       <div class="col-1" style="display: flex;">
         <%= render 'public/posts/favorite', post: post %>
