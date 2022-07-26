@@ -11,19 +11,18 @@
         <div class="col-4">
           <%= image_tag @post.get_post_image(300,300) %>
         </div>
-        <div class="col-8">
-          <div class="col-3">
+        <div class="row">
+          <div class="col-5" style="padding:150px 30px 0 20px;">
             <%= render 'public/posts/favorite', post: @post2 %>
           </div>
-          <div class="row">
-            <h2><%= @post.title %></h2>
-          </div>
-          <div class="row">
-            <div class="col-12">Sentence</div>
-          </div>
-          <div class="row">
-            <div class="col-12"><%= @post.sentence %></div>
-          </div>
+            <div class="col-5">
+              <div class="row">
+                <h2><%= @post.title %></h2>
+              </div>
+              <div class="row">
+                <div class="col-10"><h6><%= @post.sentence %></h6></div>
+              </div>
+            </div>
         </div>
       </div>
       <div class="">
