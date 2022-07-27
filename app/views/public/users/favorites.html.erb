@@ -1,8 +1,31 @@
-<div class="favorites">
-  いいね一覧
-  <% @favorite_posts.each do |post| %>
-    <%= image_tag post.get_post_image(100,100) %>
-    <%= post.title %>
-    <%= post.sentence %>
-  <% end %>
+<div class="wrap">
+  <div class="container">
+    <div class="row page-title">
+      <h1>いいね一覧</h1>
+    </div>
+    <table class="table table-hover table-inverse">
+      <thead>
+        <tr>
+          <th></th>
+          <th>title</th>
+          <th>opinion</th>
+        </tr>
+      </thead>
+      <% @favorite_posts.each do |post| %>
+      <tbody>
+        <tr>
+          <td><%= image_tag post.get_post_image(150,150) %></td>
+          <td>
+            <%=link_to post_path(post) do %>
+              <h2><%= post.title %></h2>
+            <% end %>
+          </td>
+          <td>
+            <h4><%= post.sentence %></h4>
+          </td>
+        </tr>
+      </tbody>
+      <% end %>
+    </table>
+  </div>
 </div>
