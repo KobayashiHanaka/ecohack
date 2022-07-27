@@ -16,7 +16,11 @@
           <tbody>
             <tr>
               <td><%= image_tag user.get_profile_image(100,100)%></td>
-              <td><%= user.name %></td>
+              <td>
+                <%= link_to user_path(user) do %>
+                  <h2><%= user.name %></h2>
+                <% end %>
+              </td>
               <td><%= user.introduce %></td>
               <% if current_user.following?(user) %>
                 <td><%= link_to "フォローをやめる", user_relationships_path(user.id), method: :delete %></td>
