@@ -1,17 +1,31 @@
-<div class="container">
-  <div class="row">
-    <h1>投稿一覧画面</h1>
-  </div>
-  <div class="row">
-    <div class="col-md-8 offset-md-1">
-    <% @posts.each do |post| %>
-      <%= image_tag post.get_post_image(100,100) %>
-      <%= post.title %>
-      <%= post.sentence %>
-      <%= link_to "#{post.post_comments.count}コメント", post_path(post) %>
-    <% end %>
+<div class="wrapper">
+  <div class="container">
+    <div class="row">
+      <h1>投稿一覧画面</h1>
     </div>
+    <table class="table table-hover table-inverse">
+      <thead>
+        <tr>
+          <th></th>
+          <th>タイトル</th>
+          <th>説明</th>
+          <th></th>
+        </tr>
+      </thead>
+      <% @posts.each do |post| %>
+      <tbody>
+        <tr>
+          <td><%= image_tag post.get_post_image(100,100) %></td>
+          <td>
+            <%= link_to admin_post_path(post) do %>
+              <h2><%= post.title %></h2>
+            <% end %>
+          </td>
+          <td><%= post.sentence %></td>
+          <td><%= link_to "#{post.post_comments.count}コメント", post_path(post) %></td>
+        </tr>
+      </tbody>
+      <% end %>
+    </table>
   </div>
 </div>
-
-

@@ -1,25 +1,30 @@
-<div class="container">
-  <div class="row">
-    <h1>会員一覧画面</h1>
-  </div>
-  <div class="row">
-      <div class="col-md-6">image</div>
-      <div class="col-md-6">name</div>
-      <div class="col-md-6">introduce</div>
-  </div>
-  <div class="row">
-      <% @users.each do |user|%>
-        <%= image_tag user.get_profile_image(100,100) %>
-        <%= link_to admin_user_path(user) do %>
-          <%= user.name %>
+<div class="wrapper">
+  <div class="container">
+    <div class="row">
+      <h1>会員一覧画面</h1>
+    </div>
+    <table class="table table-hover table-inverse">
+      <thead>
+        <tr>
+          <th></th>
+          <th><h2>name</h2></th>
+          <th><h2>introduce</h2></th>
+        </tr>
+      </thead>
+        <% @users.each do |user|%>
+          <tbody>
+            <tr>
+              <td><%= image_tag user.get_profile_image(100,100) %></td>
+              <td>
+                <%= link_to admin_user_path(user) do %>
+                  <h4><%= user.name %></h4>
+                <% end %>
+              </td>
+              <td><%= user.introduce %></td>
+              <td><%= link_to "削除する", admin_user_path(user), method: :delete %></td>
+            </tr>
+          </tbody>
         <% end %>
-        <%= link_to "削除する", admin_user_path(user), method: :delete %>
-        <%= user.introduce %>
-      <% end %>
+    </table>
   </div>
 </div>
-
-
-
-
-
