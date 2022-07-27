@@ -1,11 +1,25 @@
-<div class="container">
-  <div class="row">
-    <h1>会員詳細画面</h1>
+<div class="wrapper">
+  <div class="container">
+    <div class="row">
+      <h1>会員詳細画面</h1>
+    </div>
+    <table>
+      <thead>
+        <tr>
+          <th></th>
+          <th>ニックネーム</th>
+          <th>自己紹介</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th><%=image_tag @user.get_profile_image(100,100) %></th>
+          <th><%= @user.name %></th>
+          <th><%= @user.introduce %></th>
+          <th><%= link_to "削除する", admin_user_path(@user), method: :delete %></th>
+        </tr>
+      </tbody>
+    </table>
   </div>
-  <div class="row">
-    <%=image_tag @user.get_profile_image(100,100) %>
-    <%= @user.name %>
-    <%= @user.introduce %>
-  </div>
-  <%= link_to "削除する", admin_user_path(@user), method: :delete %>
 </div>
