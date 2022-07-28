@@ -15,9 +15,11 @@
       <div class="row">
         <%= @user.introduce %>
       </div>
-      <div class="row" style="margin-top: 20px; display: block;">
-        <%= link_to "編集する", edit_user_path(@user), class:"btn btn-outline-secondary" %>
-      </div>
+        <% if @user==current_user %>
+          <div class="row" style="margin-top: 20px; display: block;">
+            <%= link_to "編集する", edit_user_path(@user), class:"btn btn-outline-secondary" %>
+          </div>
+        <% end %>
       <div class="row" style="margin-top: 20px; display: block;">
         <% if @user!=current_user %>
           <% if current_user.following?(@user) %>

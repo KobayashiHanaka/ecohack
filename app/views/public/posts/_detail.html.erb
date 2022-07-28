@@ -3,6 +3,8 @@
       <table class="table">
         <tr>
           <th><%= image_tag user.get_profile_image(100,100) %></th>
+        </tr>
+        <tr>
           <th>ニックネーム</th>
           <th><%= user.name %></th>
         </tr>
@@ -12,8 +14,10 @@
         </tr>
       </table>
     <div class="row">
+      <% if user = current_user %>
         <%= link_to edit_user_path(user.id), class: "btn btn-outline-secondary btn-block" do %>
-            <i class="fas fa-user-cog"></i>
+              <h4>編集</h4>
         <% end %>
+      <% end %>
     </div>
 </div>
