@@ -18,9 +18,11 @@
                 <%= image_tag user.get_profile_image(200,200) %>
               </td>
               <td>
-                <%= link_to user_path(user) do %>
-                  <%= user.name %>
-                <% end %>
+                <h2>
+                  <%= link_to user_path(user) do %>
+                    <%= user.name %>
+                  <% end %>
+                </h2>
               </td>
               <td>
                 <% if user!=current_user %>
