@@ -13,14 +13,14 @@
     </div>
     <div class="col-md-6 offset-md-1">
       <% @posts.each do |post| %>
-        <div class="row post-item", style="margin-bottom: 10px;">
+        <div class="row post-item">
           <div class="col-3">
             <%= image_tag post.get_post_image(100,100) %>
           </div>
-          <div class="col-1 post-favorite" style="display: flex;">
+          <div class="col-1 post-favorite">
             <%= render 'public/posts/favorite', post: post %>
           </div>
-          <div class="col-3 post-title" style="margin-left: 20px; font-weight-bold">
+          <div class="col-3 post-title">
             <%= link_to post_path(post) do %>
               <%= post.title %>
             <% end %>
