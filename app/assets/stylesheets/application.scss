@@ -35,6 +35,14 @@
    font-weight: bold;
  }
 
+ .top {
+  height:500px;
+  background-image: url('ecohack_top.jpg');
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: bottom;
+ }
+
  .about {
   height: 800px;
   background-image: url('ecohack_about.jpg');
