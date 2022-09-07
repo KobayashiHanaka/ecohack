@@ -1,13 +1,13 @@
 <% if post.favorited_by?(current_user) %>
-  <div class="favorite-delete" style="display: flex;"><%= link_to post_favorites_path(post), method: :delete do %>
-    <div class="favorite-delete-icon col-3" style="padding: 0;"><i class="favorite-delete-icon-show fas fa-heart" style="color:red; width:30px; height:30px; margin-right: 10px; "></i></div>
+  <div class="favorite-delete"><%= link_to post_favorites_path(post), method: :delete do %>
+    <div class="favorite-delete-icon col-3"><i class="favorite-delete-icon-show fas fa-heart"></i></div>
   <% end %>
-    <div class="favorite-count col-3"  style="padding: 0;"><%= post.favorites.count %></div>
+    <div class="favorite-count col-3"><%= post.favorites.count %></div>
   </div>
 <% else %>
-  <div class="favorite-touch" style="display: flex;" ><%= link_to post_favorites_path(post), method: :post do %>
-    <div class="favorite-touch-icon col-3"  style="padding: 0;"><i class="favorite-touch-icon-show far fa-heart" style="color:red; width:30px; height:30px;  margin-right: 10px;"></i></div>
+  <div class="favorite-touch"><%= link_to post_favorites_path(post), method: :post do %>
+    <div class="favorite-touch-icon col-3"><i class="favorite-touch-icon-show far fa-heart"></i></div>
   <% end %>
-    <div class="favorite-count col-3"  style="padding: 0;"><%= post.favorites.count %></div>
+    <div class="favorite-count col-3"><%= post.favorites.count %></div>
   </div>
 <% end %>
