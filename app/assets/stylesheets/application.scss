@@ -48,4 +48,42 @@
   background-image: url('ecohack_about.jpg');
   background-size: cover;
  }
+ 
+ .favorite-delete {
+  display: flex;
+ }
+ 
+ .favorite-delete-icon {
+  padding: 0;
+ }
+ 
+ .favorite-delete-icon-show {
+  color:red; 
+  width:30px; 
+  height:30px; 
+  margin-right: 10px;
+ }
+ 
+ .favorite-count {
+  padding: 0;
+ }
+ 
+ .favorite-touch {
+  display: flex;
+ }
+ 
+ .favorite-touch-icon {
+  padding: 0;
+ }
+ 
+ .favorite-touch-icon-show {
+  color:red; 
+  width:30px; 
+  height:30px;  
+  margin-right: 10px;
+ }
+ 
+ .favorite-count {
+  padding: 0;
+ }
 /*background: linear-gradient(to bottom, gold 0%, orange 100%);*/
